@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="sidebar/css/style.css"> -->
+
+    <link type="text/css" href="http://calculatorboy.com/assets/css/custom.ltr.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://calculatorboy.com/assets/js/jquery.min.js"></script>
+    <script src="http://calculatorboy.com/assets/js/perfect-scrollbar.min.js"></script>
+
+    <!-- Smooth Scrollbar -->
+    <script src="http://calculatorboy.com/assets/js/smooth-scrollbar.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="custom.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/4414288e8e.js"></script>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap@4/dist/css/bootstrap.min.css" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="main.css">
+    <title>Calculator boy</title>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 ">
+        <div class="container">
+            <a class="navbar-brand logo-image" title="Calculator Boy" href="http://calculatorboy.com">
+
+                <img src="http://calculatorboy.com/components/storage/app/public/photos/1/logo2.png" alt="Calculator Boy" class="navbar-brand-image">
+
+            </a>
+
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon mt-2">
+    <span class="navbar-toggler-bar bar1"></span>
+    <span class="navbar-toggler-bar bar2"></span>
+    <span class="navbar-toggler-bar bar3"></span>
+  </span>
+</button>
+
+            <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+
+                <ul class="navbar-nav navbar-nav-hover mx-auto">
+
+
+                </ul>
+
+                <ul class="navbar-nav navbar-nav-hover">
+
+
+                    <li class="dropdown mx-2 mx-lg-auto my-2 my-lg-auto">
+                        <div class="author align-items-center cursor-pointer" id="dropdownMenuUser" data-bs-toggle="dropdown" aria-expanded="false">
+                            <!-- <img src="https://www.gravatar.com/avatar/f4156ac13453c15406feee0325233e54?s=150&amp;d=mm&amp;r=g" class="avatar shadow"> -->
+                            <div class="name ps-2">
+                                <span>James Smith</span>
+                                <div class="stats">
+                                    <small>Administrator</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="dropdown-menu dropdown-menu-animation px-2 mt-md-0 mt-lg-4" aria-labelledby="dropdownMenuUser">
+                            <li>
+                                <a href="http://calculatorboy.com/admin/dashboard" class="dropdown-item border-radius-md">
+                                    <i class="fas fa-tachometer-alt fa-fw me-2"></i> Admin Dashboard
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="http://calculatorboy.com/profile" class="dropdown-item border-radius-md">
+                                    <i class="fas fa-user fa-fw me-2"></i> Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="http://calculatorboy.com/logout" class="dropdown-item border-radius-md">
+                                    <i class="fas fa-power-off fa-fw me-2"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <!-- End::Login -->
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="parallax" class="text-white">
+        <div class="position-relative overflow-hidden text-center bg-light">
+            <span class="mask" style="
+                
+                background: #5e72e4;
+                background: -moz-linear-gradient( to left, #5e72e4, #825ee4  );
+                background: -webkit-linear-gradient( to left, #5e72e4, #825ee4 );
+                background: linear-gradient( to left, #5e72e4, #825ee4 );
+                opacity: 0.9;
+
+                
+          "></span>
+
+            <div class="position-absolute start-0 top-0 w-100 parallax-image" style="background-image: url(http://calculatorboy.com/assets/img/parallax.jpg);filter: blur(1px);"></div>
+
+            <div class="container position-relative zindex-1">
+                <div class="col text-center p-lg-5 mx-auto my-5">
+
+                    <h1 class="text-white">Image compressor</h1>
+                    <h4 class="lead text-white letter-normal my-3"></h4>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="container d-md-flex align-items-stretch">
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5 pt-5">
+
+            <div id="app" v-cloak>
+                <div class="card bg-light mb-4" @change="change" @dragover="dragover" @drop="drop">
+                    <div class="card-body">
+                        <div class="p-5 text-center">Drop image here or <label class="text-primary">browse... <input type="file" class="sr-only" id="file" accept="image/*" ref="input"></label></div>
+                    </div>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <h4>Options</h4>
+                        <div class="mb-3">
+                            <input type="checkbox" name="strict" class="form-check-input" id="inputStrict" v-model="options.strict">
+                            <label class="form-check-label" for="inputStrict">strict</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="checkbox" name="checkOrientation" class="form-check-input" id="inputCheckOrientation" v-model="options.checkOrientation">
+                            <label class="form-check-label" for="inputCheckOrientation">Check Orientation</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputMaxWidth" class="label1">maxWidth</label>
+                            <input type="number" name="maxWidth" class="form-control" id="inputMaxWidth" placeholder="Infinity" v-model.number="options.maxWidth">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputMaxHeight" class="label1">maxHeight</label>
+                            <input type="number" name="maxWidth" class="form-control" id="inputMaxWidth" placeholder="Infinity" v-model.number="options.maxWidth">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputMinWidth" class="label1">minwidth</label>
+                            <input type="number" name="minWidth" class="form-control" id="inputMinWidth" placeholder="0" v-model.number="options.minWidth">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputMinHeight" class="label1">minHeight</label>
+                            <input type="number" name="minHeight" class="form-control" id="inputMinHeight" placeholder="0" v-model.number="options.minHeight">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputWidth" class="label1">Width</label>
+                            <input type="number" name="width" class="form-control" id="inputWidth" placeholder="undefined" v-model.number="options.width">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputHeight" class="label1">Height</label>
+                            <input type="number" name="height" class="form-control" id="inputHeight" placeholder="undefined" v-model.number="options.height">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputConvertSize" class="label1">Convert size</label>
+                            <input type="number" name="convertSize" class="form-control" id="inputConvertSize" placeholder="5000000" v-model.number="options.convertSize">
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <h5 class="card-header d-flex align-items-center justify-content-between">
+                                <span>Input image <small class="text-secondary">(original image)</small></span>
+                                <a class="btn btn-sm btn-blocks btn-outline-primary" :download="input.name" :href="inputURL" title="Download the compressed image">Download</a>
+                            </h5>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 d-flex mb-3">
+                                        <div class="w-100 text-center" v-if="inputURL">
+                                            <img class="mw-100" :src="inputURL" :alt="input.name">
+                                        </div>
+                                        <div v-else class="w-100 bg-light"></div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <dl class="row">
+                                            <dt class="col-5">lastModified:</dt>
+                                            <dd class="col-7">{{ input.lastModified || 'N/A' }}</dd>
+                                            <dt class="col-5">lastModifiedDate:</dt>
+                                            <dd class="col-7">{{ input.lastModifiedDate || 'N/A' }}</dd>
+                                            <dt class="col-5">name:</dt>
+                                            <dd class="col-7">{{ input.name || 'N/A' }}</dd>
+                                            <dt class="col-5">type:</dt>
+                                            <dd class="col-7">{{ input.type || 'N/A' }}</dd>
+                                            <dt class="col-5">size:</dt>
+                                            <dd class="col-7">{{ input.size | prettySize }}</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <h5 class="card-header d-flex align-items-center justify-content-between">
+                                    <span>Output image <small class="text-secondary">(compressed image)</small></span>
+                                    <a class="btn btn-sm btn-blocks btn-outline-primary" :download="output.name" :href="outputURL" title="Download the compressed image">Download</a>
+                                </h5>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4 d-flex mb-3">
+                                            <div class="w-100 text-center" v-if="outputURL">
+                                                <img class="mw-100" :src="outputURL" :alt="output.name">
+                                            </div>
+                                            <div v-else class="w-100 bg-light"></div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <dl class="row">
+                                                <dt class="col-5">lastModified:</dt>
+                                                <dd class="col-7">{{ output.lastModified || 'N/A' }}</dd>
+                                                <dt class="col-5">lastModifiedDate:</dt>
+                                                <dd class="col-7">{{ output.lastModifiedDate || 'N/A' }}</dd>
+                                                <dt class="col-5">name:</dt>
+                                                <dd class="col-7">{{ output.name || 'N/A' }}</dd>
+                                                <dt class="col-5">type:</dt>
+                                                <dd class="col-7">{{ output.type || 'N/A' }}</dd>
+                                                <dt class="col-5">size:</dt>
+                                                <dd class="col-7">{{ output.size | prettySize }}
+                                                    <span v-if="output.size">({{ ((1 - (output.size / input.size)) * 100).toFixed(2) }}% off)</span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <br>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <br> <br> <br>
+            <div>
+                <h4 class="titleside">Related calculators</h4> <br>
+                <div class="row row-cols-1 row-cols-md-3 g-4 ">
+                    <div class="col">
+                        <div class="card h-100">
+
+                            <div class="card-body">
+                                <h5 class="card-title ">
+                                    <a href="tier.html">TIER  calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body ">
+                                <h5 class="card-title ">
+                                    <a href="current_ratio.html">Current ratio calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body ">
+                                <h5 class="card-title ">
+                                    <a href="quick_ratio.html">Quick ratio calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="cash_ratio.html">Cash ratio calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body ">
+                                <h5 class="card-title ">
+                                    <a href="working_capital.html">Working capital calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body ">
+                                <h5 class="card-title ">
+                                    <a href="inventory.html">Inventory turnover calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body ">
+                                <h5 class="card-title ">
+                                    <a href="total_asset.html">Total asset turnover calculator </a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="avg_collection.html">Average collection period calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="equity_multiplier.html">Equity multiplier calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="return_on_assets.html">Return on assets calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="return_on_equity.html">Return on equity calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="gross_profit.html">Gross profit margin calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="operating_profit.html">Operating profit margin calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="net_profit_margin.html">Net profit margin calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="earnings_per_share.html">Earnings per share calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="price_per_earnings.html">Price per earnings ratio calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="price_per_sales.html">Price per sales ratio calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="price_per_book.html">Price per book ratio calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="dividend_payout.html">Dividend payout ratio calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="margin.html">Margin calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="markup.html">Markup calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="price.html">Price calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="sales.html">Sales calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="profit.html">Profit calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="discount.html">Discount calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="sales_tax.html">Sales tax calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="bmi.html">BMI calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="random_name.html">Random name picker</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="random_number.html">Random number generetor</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="standard_deviation.html">Standard deviation calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="age.html">Age calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="num_2_words.html">Number to words converter</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="date.html">Date calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="time.html">Time calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="hours.html">Hours calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="conversion.html">Conversion calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="sample_size.html">Sample size calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="z_score.html">Z score calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 ">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="p_and_c.html">Permutation and Combination calculator</a>
+                                </h5>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br><br> <br><br>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <h5 class="titleside ">Popular tools</h5>
+                <ul class="list-unstyled components mb-5">
+                    <li>
+                        <a href="loan.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Loan Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="simple_loan.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Simple Loan calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="loan_repayment.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Loan repayment calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="emi.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">EMI Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="car_loan.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Car Loan Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="car_loan_payment.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Car loan payment Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="mortgage.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Mortgage Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="simple_interest.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Simple Interest Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="simple_interest_2.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Simple Interest (2) Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="compound.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Compound Interest Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="present_value.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Present value Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="net_present_value.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Net present value Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="debt_ratio.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Debt ratio Calculator</a>
+
+                    </li>
+                    <li>
+                        <a href="debt_equity.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Debt equity ratio Calculator</a>
+
+                    </li>
+                </ul>
+                <p class="titleside">Recent posts</p>
+            </div>
+            <br>
+
+
+
+    </div>
+    </nav>
+    </div>
+
+    <div class="container">
+        <h4 class="mb-4 " style="color: rgb(174, 110, 192);">About us </h4>
+        <p>Calculator Boy's main focus is to provide fast, comprehensive, convenient, free online calculators in different areas. Our goal is to become the best website for people who need to make quick calculations. Additionally, we believe the internet
+            should be a source of free information. Therefore, all our tools and services are free, with no registration required.</p>
+        <!-- <p>Copyrights © 2022. All Rights Reserved by Calculator Boy</p> --><br><br>
+        <div class="text-center">
+            <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+            <a href="https://www.twitter.com/" class="fa fa-twitter"></a>
+            <a href="https://www.google.com/" class="fa fa-google"></a>
+            <a href="https://www.linkedin.com/" class="fa fa-linkedin"></a>
+            <a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+            <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+        </div>
+    </div> <br><br>
+    <footer>
+        <p class="text-muted text-center">Copyrights © 2022. All Rights Reserved by Calculator Boy</p> <br>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+
+    <script src="https://unpkg.com/jquery@3/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap@4/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2/dist/vue.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue-compare-image@0.2/dist/vueCompareImage.umd.min.js" crossorigin="anonymous"></script>
+    <script src="https://fengyuanchen.github.io/shared/google-analytics.js" crossorigin="anonymous"></script>
+    <script src="js/compressor.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
