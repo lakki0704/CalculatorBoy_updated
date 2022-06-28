@@ -57,7 +57,10 @@
                         <div class="author align-items-center cursor-pointer" id="dropdownMenuUser" data-bs-toggle="dropdown" aria-expanded="false">
                             <!-- <img src="https://www.gravatar.com/avatar/f4156ac13453c15406feee0325233e54?s=150&amp;d=mm&amp;r=g" class="avatar shadow"> -->
                             <div class="name ps-2">
-
+                                <span>James Smith</span>
+                                <div class="stats">
+                                    <small>Administrator</small>
+                                </div>
                             </div>
                         </div>
 
@@ -109,7 +112,7 @@
             <div class="container position-relative zindex-1">
                 <div class="col text-center p-lg-5 mx-auto my-5">
 
-                    <h1 class="text-white">Markup Calculator</h1>
+                    <h1 class="text-white">Price Calculator</h1>
                     <h4 class="lead text-white letter-normal my-3"></h4>
 
                 </div>
@@ -127,11 +130,11 @@
             <br><br>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="label1">Cost price :</label>
-                <input type="number" class="form-control" placeholder="20000" id="m36">
+                <input type="number" class="form-control" placeholder="20000" id="m43">
             </div>
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="label1">Selling price :</label>
-                <input type="number" class="form-control" placeholder="30000" id="i36">
+                <label for="exampleFormControlInput1" class="label1">Gross margin :</label>
+                <input type="number" class="form-control" placeholder="30%" id="i43">
             </div>
             <!-- <div class="mb-3">
                 <label for="exampleFormControlInput1" class="label1">Market cap :</label>
@@ -141,9 +144,11 @@
             <br>
 
             <div class="text-center">
-                <button class="text-center button1 btn" type="button" onclick="calc36()"> Calculate</button>
+                <button class="text-center button1 btn" type="button" onclick="calc43()"> Calculate</button>
                 <br><br>
-                <span class="result">Markup percentage : </span> <span class="result" id="payment36"></span> <br>
+                <span class="result">Revenue : </span> <span class="result" id="payment43"></span> <br>
+                <span class="result">Gross profit : </span> <span class="result" id="payment243"></span> <br>
+                <span class="result">Margin : </span> <span class="result" id="payment343"></span> <br>
 
             </div>
             <br> <br> <br>
@@ -662,35 +667,7 @@
 
                     </li>
                 </ul>
-                <h5 class="titleside ">Other free tools</h5>
-                <ul class="list-unstyled components mb-5">
-                    <li>
-                        <a href="word_counter.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Word counter</a>
-                    </li>
-                    <li>
-                        <a href="case_converter.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Case converter</a>
-                    </li>
-                    <li>
-                        <a href="image_text.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Image to text converter</a>
-
-                    </li>
-                    <li>
-                        <a href="text_image.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Text to image converter</a>
-
-                    </li>
-                    <li>
-                        <a href="text_speech.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Text to speech converter</a>
-
-                    </li>
-                    <li>
-                        <a href="imagecompressor.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Image compressor</a>
-
-                    </li>
-                    <li>
-                        <a href="qrCode.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">QR code genertor</a>
-
-                    </li>
-                </ul>
+                <p class="titleside">Recent posts</p>
             </div>
             <br>
 
@@ -722,24 +699,13 @@
 
 
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
-    -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
-    -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+
+
 </body>
 
 </html>

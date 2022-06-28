@@ -217,3 +217,7 @@ table {
     font-size: 0.75em;
     display: none;
 }
+
+.blockGrad {
+    background-color: #825ee4;
+}

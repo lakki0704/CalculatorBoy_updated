@@ -26,7 +26,6 @@
 
 <body>
 
-
     <nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 ">
         <div class="container">
             <a class="navbar-brand logo-image" title="Calculator Boy" href="http://calculatorboy.com">
@@ -109,7 +108,7 @@
             <div class="container position-relative zindex-1">
                 <div class="col text-center p-lg-5 mx-auto my-5">
 
-                    <h1 class="text-white">Markup Calculator</h1>
+                    <h1 class="text-white">QR code gneretor</h1>
                     <h4 class="lead text-white letter-normal my-3"></h4>
 
                 </div>
@@ -123,32 +122,23 @@
         <!-- Page Content  -->
         <div id="content" class="p-4 p-md-5 pt-5">
 
-
-            <br><br>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="label1">Cost price :</label>
-                <input type="number" class="form-control" placeholder="20000" id="m36">
+            <div class="mb-3"> <br>
+                <label for="" class="label1">Text: </label>
+                <input id="qr-text" type="text" placeholder="Text to generate QR code" class="form-control">
             </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="label1">Selling price :</label>
-                <input type="number" class="form-control" placeholder="30000" id="i36">
-            </div>
-            <!-- <div class="mb-3">
-                <label for="exampleFormControlInput1" class="label1">Market cap :</label>
-                <input type="number" class="form-control" placeholder="3000" id="n32">
-            </div> -->
-
-            <br>
-
+            <br/>
             <div class="text-center">
-                <button class="text-center button1 btn" type="button" onclick="calc36()"> Calculate</button>
-                <br><br>
-                <span class="result">Markup percentage : </span> <span class="result" id="payment36"></span> <br>
+                <button class="btn text-center btn-secondary" onclick="generateQRCode()">Create QR Code</button>
+            </div>
+            <br/>
+            <div class="text-center">
+                <p id="qr-result" class="text-center">This is deault QR code:</p>
+                <canvas id="qr-code"></canvas>
 
             </div>
-            <br> <br> <br>
+            <br> <br>
             <div>
-                <h4 class="titleside">Related calculators</h4> <br>
+                <h4 class="titleside">Related Calculators</h4> <br>
                 <div class="row row-cols-1 row-cols-md-3 g-4 ">
                     <div class="col">
                         <div class="card h-100">
@@ -686,10 +676,6 @@
                         <a href="imagecompressor.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">Image compressor</a>
 
                     </li>
-                    <li>
-                        <a href="qrCode.html" data-toggle="collapse " aria-expanded="false " class="list-group-item list-group-item-action list-group-item-light ">QR code genertor</a>
-
-                    </li>
                 </ul>
             </div>
             <br>
@@ -735,11 +721,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
-    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script>
+        /* JS comes here */
+        var qr;
+        (function() {
+            qr = new QRious({
+                element: document.getElementById('qr-code'),
+                size: 200,
+                value: 'https://studytonight.com'
+            });
+        })();
+
+        function generateQRCode() {
+            var qrtext = document.getElementById("qr-text").value;
+            document.getElementById("qr-result").innerHTML = "QR code for " + qrtext + ":";
+            // alert(qrtext);
+            qr.set({
+                foreground: 'black',
+                size: 200,
+                value: qrtext
+            });
+        }
+    </script>
+
 </body>
 
 </html>
